@@ -49,7 +49,7 @@ if uploaded_file:
             df["predicted_time_between_cleaning"] = predictions.round(0)
 
             # Display
-            st.success("Predictions completed!")
+            st.success("Recommendations Completed!")
             st.dataframe(df)
 
             # Download button
@@ -60,7 +60,7 @@ if uploaded_file:
                 return output
 
             st.download_button(
-                label="📥 Download Results as Excel",
+                label="📥 Download Recommendations to Excel",
                 data=convert_df(df),
                 file_name="predicted_cleaning_intervals.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
