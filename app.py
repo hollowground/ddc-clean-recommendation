@@ -46,7 +46,7 @@ if uploaded_file:
         else:
             # Make predictions
             predictions = model.predict(df[required_cols])
-            df["predicted_time_between_cleaning"] = predictions.round(0)
+            df["recommended_time_between_cleaning"] = predictions.round(0)
 
             # Display
             st.success("Recommendations Completed!")
@@ -62,7 +62,7 @@ if uploaded_file:
             st.download_button(
                 label="📥 Download Recommendations to Excel",
                 data=convert_df(df),
-                file_name="predicted_cleaning_intervals.xlsx",
+                file_name="recommended_cleaning_intervals.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             )
     except Exception as e:
