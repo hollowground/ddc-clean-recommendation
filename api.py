@@ -23,4 +23,4 @@ class CleaningInput(BaseModel):
 def predict_cleaning_time(data: CleaningInput):
     input_df = pd.DataFrame([data.dict()])
     prediction = model.predict(input_df)[0]
-    return {"predicted_time_between_cleaning": round(prediction, 0)}
+    return {"recommended_time_between_cleaning": round(prediction, 0)}
