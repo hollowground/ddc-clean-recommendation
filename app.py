@@ -50,7 +50,7 @@ if uploaded_file:
 
             # Display
             st.success("Recommendations Completed!")
-            st.dataframe(df)
+            st.dataframe(df, use_container_width=True)
 
             # Download button
             def convert_df(df):
