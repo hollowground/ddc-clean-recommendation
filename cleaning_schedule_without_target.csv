@@ -1,4 +1,4 @@
-campus,building,floor,location,location_number,space_type,last_people_traffic,last_inspection_score,prev_people_traffic,prev_inspection_score,time_between_cleaning,people_traffic_diff
+﻿campus,building,floor,location,location_number,space_type,last_people_traffic,last_inspection_score,prev_people_traffic,prev_inspection_score,time_between_cleaning,people_traffic_diff
 Compass HQ,2300 (CC1),1st Floor,100 WELLNESS CENTER,LOC0073819,Medical/Wellness,8,77,4,78,24,4
 Compass HQ,2300 (CC1),1st Floor,1008B TR TRAINING ROOM,LOC0073820,Conference Room,10,86,5,93,4,5
 Compass HQ,2300 (CC1),1st Floor,108A TRAINING ROOM,LOC0073807,Conference Room,6,88,9,85,4,-3
