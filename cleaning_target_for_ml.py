@@ -1,6 +1,7 @@
 import pandas as pd
 
 # Sample dataset
+"""
 data = [
     {
         "curr_date": "2024-04-05",
@@ -11,7 +12,7 @@ data = [
         "prev_people_traffic": 13,
         "prev_inspection_score": 98,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": -12
+        "people_traffic_diff": -12,
     },
     {
         "curr_date": "2024-04-05",
@@ -22,7 +23,7 @@ data = [
         "prev_people_traffic": 23,
         "prev_inspection_score": 85,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": -8
+        "people_traffic_diff": -8,
     },
     {
         "curr_date": "2024-04-05",
@@ -33,7 +34,7 @@ data = [
         "prev_people_traffic": 25,
         "prev_inspection_score": 93,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": -9
+        "people_traffic_diff": -9,
     },
     {
         "curr_date": "2024-04-05",
@@ -44,7 +45,7 @@ data = [
         "prev_people_traffic": 25,
         "prev_inspection_score": 90,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": -16
+        "people_traffic_diff": -16,
     },
     {
         "curr_date": "2024-04-05",
@@ -55,7 +56,7 @@ data = [
         "prev_people_traffic": 11,
         "prev_inspection_score": 95,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": 10
+        "people_traffic_diff": 10,
     },
     {
         "curr_date": "2024-04-05",
@@ -66,7 +67,7 @@ data = [
         "prev_people_traffic": 1,
         "prev_inspection_score": 85,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": 15
+        "people_traffic_diff": 15,
     },
     {
         "curr_date": "2024-04-05",
@@ -77,7 +78,7 @@ data = [
         "prev_people_traffic": 7,
         "prev_inspection_score": 85,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": 2
+        "people_traffic_diff": 2,
     },
     {
         "curr_date": "2024-04-05",
@@ -88,7 +89,7 @@ data = [
         "prev_people_traffic": 3,
         "prev_inspection_score": 98,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": 23
+        "people_traffic_diff": 23,
     },
     {
         "curr_date": "2024-04-05",
@@ -99,7 +100,7 @@ data = [
         "prev_people_traffic": 21,
         "prev_inspection_score": 96,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": 9
+        "people_traffic_diff": 9,
     },
     {
         "curr_date": "2024-04-05",
@@ -110,9 +111,12 @@ data = [
         "prev_people_traffic": 3,
         "prev_inspection_score": 96,
         "time_between_cleaning": 4.0,
-        "people_traffic_diff": 12
-    }
+        "people_traffic_diff": 12,
+    },
 ]
+"""
+df_data = pd.read_csv("cleaning_schedule_without_target.csv")
+data = df_data.to_dict(orient='records')
 
 # Function to compute the target (label)
 def compute_target_time(row):
@@ -135,6 +139,7 @@ def compute_target_time(row):
         else:
             return base_time
 
+
 # Convert to DataFrame
 df = pd.DataFrame(data)
 
@@ -143,12 +148,13 @@ df["target_time_between_cleaning"] = df.apply(compute_target_time, axis=1)
 
 # Optional: Drop non-feature fields like curr_date if needed
 # These fields are usually not predictive and can be removed for training
-features_to_drop = ["curr_date", "last_clean_date", "prev_last_clean_date"]
-df_model = df.drop(columns=features_to_drop)
+#features_to_drop = ["curr_date", "last_clean_date", "prev_last_clean_date"]
+#df_model = df.drop(columns=features_to_drop)
 
 # Save to CSV for training
-df_model.to_csv("training_dataset.csv", index=False)
+#df_model.to_csv("training_dataset.csv", index=False)
+df.to_csv("training_dataset_new.csv", index=False)
 
 # Show a preview
-print("ML training dataset saved as 'training_dataset.csv'")
-print(df_model.head())
+print("ML training dataset saved as 'training_dataset_new.csv'")
+print(df.head())
